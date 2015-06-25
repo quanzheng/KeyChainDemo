@@ -9,8 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <Security/Security.h>
 @interface KeyChain : NSObject
+
+// save username and password to keychain
 + (void)save:(NSString *)service data:(id)data;
+
+// take out username and passwore from keychain
 + (id)load:(NSString *)service;
+
+// delete username and password from keychain
 + (void)delete:(NSString *)service;
 
 @end

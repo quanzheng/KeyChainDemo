@@ -24,6 +24,7 @@
     NSMutableDictionary *userNamePasswordKVPairs = [NSMutableDictionary dictionary];
     [userNamePasswordKVPairs setObject:@"userName" forKey:KEY_USERNAME];
     [userNamePasswordKVPairs setObject:@"password" forKey:KEY_PASSWORD];
+    
     // 将用户名和密码写入keychain
     [KeyChain save:KEY_USERNAME_PASSWORD data:userNamePasswordKVPairs];
     
@@ -33,6 +34,9 @@
     NSString *password = [readUsernamePassword objectForKey:KEY_PASSWORD];
     NSLog(@"username = %@", userName);
     NSLog(@"password = %@", password);
+    
+    // 将用户名和密码从keychain中删除
+    [KeyChain delete:KEY_USERNAME_PASSWORD];
 }
 
 - (void)didReceiveMemoryWarning {
