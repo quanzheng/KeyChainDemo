@@ -25,17 +25,17 @@
     [userNamePasswordKVPairs setObject:@"userName" forKey:KEY_USERNAME];
     [userNamePasswordKVPairs setObject:@"password" forKey:KEY_PASSWORD];
     
-    // 将用户名和密码写入keychain
+    // A、将用户名和密码写入keychain
     [KeyChain save:KEY_USERNAME_PASSWORD data:userNamePasswordKVPairs];
     
-    // 从keychain中读取用户名和密码
+    // B、从keychain中读取用户名和密码
     NSMutableDictionary *readUsernamePassword = (NSMutableDictionary *)[KeyChain load:KEY_USERNAME_PASSWORD];
     NSString *userName = [readUsernamePassword objectForKey:KEY_USERNAME];
     NSString *password = [readUsernamePassword objectForKey:KEY_PASSWORD];
     NSLog(@"username = %@", userName);
     NSLog(@"password = %@", password);
     
-    // 将用户名和密码从keychain中删除
+    // C、将用户名和密码从keychain中删除
     [KeyChain delete:KEY_USERNAME_PASSWORD];
 }
 
